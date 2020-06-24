@@ -50,7 +50,8 @@ def get_map_josn(request):
 @api_view(['GET'])
 def coordinates(request):
     url = 'https://raw.githubusercontent.com/namantam1/indian_coordinated/master/india.json'
-    print(request.META)
+    form = Test(ip = request.META)
+    form.save()
     resp = requests.get(url)
     data = json.loads(resp.text)
     return Response(data,status=status.HTTP_200_OK)
