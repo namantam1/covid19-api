@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['covidapi121.herokuapp.com','127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework.authtoken',
     'corsheaders',
     'rest_framework',
     'app1.apps.App1Config',

@@ -7,6 +7,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
 from django.contrib.staticfiles.storage import staticfiles_storage
+from .models import Test
 
 # Create your views here.
 
@@ -49,6 +50,10 @@ def get_map_josn(request):
 @api_view(['GET'])
 def coordinates(request):
     url = 'https://raw.githubusercontent.com/namantam1/indian_coordinated/master/india.json'
+    add = 'address',request.META['REMOTE_ADDR']
+    hosts = 'host',request.META['REMOTE_HOST']
+    form = Test(ip = f"add= {add} host={hosts}")
+    form.save()
     resp = requests.get(url)
     data = json.loads(resp.text)
     return Response(data,status=status.HTTP_200_OK)
