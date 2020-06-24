@@ -1,1 +1,1 @@
-web: gunicorn coronaMap.wsgi
+web: gunicorn coronaApi.wsgi
