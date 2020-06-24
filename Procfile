@@ -1,0 +1,1 @@
+web: gunicorn coronaMap.wsgi
