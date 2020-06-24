@@ -6,7 +6,6 @@ import json
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
-from django.templatetags.static import static
 from django.contrib.staticfiles.storage import staticfiles_storage
 
 # Create your views here.
