@@ -25,7 +25,7 @@ SECRET_KEY = 'ewedh**%tn&q$s0yy*mbo@-d4xh^k^e=w9yvu6^&2t2!xza9rn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['covidapi121.herokuapp.com','127.0.0.1']
 
 
 # Application definition
