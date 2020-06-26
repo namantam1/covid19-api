@@ -1,13 +1,13 @@
 from django.shortcuts import render
-from django.shortcuts import render
 import requests
 from bs4 import BeautifulSoup
 import json
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view,authentication_classes,permission_classes
 from rest_framework import status
 from django.contrib.staticfiles.storage import staticfiles_storage
-from .models import Test
+from user.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 
@@ -38,6 +38,8 @@ def get_json():
     return datarow
 
 @api_view(['GET'])
+@authentication_classes([TokenAuthentication])
+@permission_classes([IsAuthenticated])
 def get_map_josn(request):
     """
     List all code snippets, or create a new snippet.
@@ -50,12 +52,6 @@ def get_map_josn(request):
 @api_view(['GET'])
 def coordinates(request):
     url = 'https://raw.githubusercontent.com/namantam1/indian_coordinated/master/india.json'
-    form = Test(ip = request.META)
-    form.save()
     resp = requests.get(url)
     data = json.loads(resp.text)
     return Response(data,status=status.HTTP_200_OK)
-
-# Create your views here.
-def home(request):
-    return render(request,'app1/index.html')

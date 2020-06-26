@@ -1,0 +1,12 @@
+{% extends 'registration/base.html' %}
+{% block body %}
+    <h1 class="code-line" data-line-start=0 data-line-end=1><a id="Instruction_to_use_API__0"></a>Instruction to use API
+        -</h1>
+    <ol>
+        <li class="has-line-data" data-line-start="1" data-line-end="2">firsrt login to your account and create a new
+            key.</li>
+        <li class="has-line-data" data-line-start="2" data-line-end="3">Now to get the live data of covid-19 in json
+            format send a GET request to <a
+                href="https://covidapi121.herokuapp.com/covi19?key=%7B%7Byour_secret_key%7D">https://covidapi121.herokuapp.com/covi19?key={{your_secret_key}</a>} this will return a json containing the current covid-19 active, recovered and deceased cases data state wise along with the coordinates of state.</li>
+</ol>        
+{% endblock body %}         

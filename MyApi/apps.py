@@ -1,0 +1,8 @@
+from django.apps import AppConfig
+
+
+class MyapiConfig(AppConfig):
+    name = 'MyApi'
+
+    # def ready(self):
+    #     import MyApi.signals
